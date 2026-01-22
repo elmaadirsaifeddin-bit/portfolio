@@ -1,469 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saif | Front-End Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saif | Front-End Developer</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
 
+    body{
+      background:#0f172a;
+      color:#e5e7eb;
+    }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-  scroll-behavior:smooth;
-}
+    a{ text-decoration:none; }
 
-body{
-  background:#061d4d;
-  color:#e5e7eb;
-}
+   
+    header{
+      min-height:100vh;
+      background:linear-gradient(135deg,#0f172a,#020617);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 20px;
+    }
 
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#020617;
-  padding:18px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-}
+    .hero img{
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      border:4px solid #38bdf8;
+      object-fit:cover;
+      margin-bottom:20px;
+    }
 
-nav h1{
-  color:#06455f;
-  font-size:1.4rem;
-}
+    .hero h1{
+      font-size:2.8rem;
+      font-weight:700;
+    }
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:30px;
-}
+    .hero h1 span{
+      color:#38bdf8;
+    }
 
-nav ul li a{
-  color:#e5e7eb;
-  font-weight:500;
-}
+    .hero p{
+      max-width:600px;
+      margin:15px auto;
+      color:#94a3b8;
+      line-height:1.7;
+    }
 
-nav ul li a:hover{
-  color:#38bdf8;
-}
+    .hero button{
+      margin-top:25px;
+      padding:12px 28px;
+      background:#38bdf8;
+      color:#020617;
+      border:none;
+      border-radius:30px;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:.3s;
+    }
 
-section{
-  padding:100px 8%;
-}
+    .hero button:hover{
+      background:#0ea5e9;
+    }
 
-h2{
-  text-align:center;
-  font-size:2.3rem;
-  margin-bottom:50px;
-}
+    section{
+      padding:80px 8%;
+    }
 
-h2 span{ color:#38bdf8; }
-header{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding-top:80px;
-}
+    h2{
+      text-align:center;
+      font-size:2.2rem;
+      margin-bottom:50px;
+    }
 
-.hero img{
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  border:4px solid #b8d2dd;
-  object-fit:cover;
-  margin-bottom:20px;
-}
+    h2 span{
+      color:#38bdf8;
+    }
 
-.hero h1{
-  font-size:4.8rem;
-}
+    .about{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      color:#cbd5f5;
+      line-height:1.8;
+    }
 
-.hero h1 span{ color:#164f68; }
+   
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
 
-.hero p{
-  max-width:600px;
-  margin:15px auto;
-  color:#94a3b8;
-  line-height:1.7;
-}
+    .card{
+      background:#020617;
+      border-radius:20px;
+      padding:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,.4);
+      transition:.3s;
+    }
 
-.about{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-  color:#cbd5f5;
-  line-height:1.8;
-}
+    .card:hover{
+      transform:translateY(-10px);
+    }
 
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:25px;
-}
+    .card h3{
+      color:#38bdf8;
+      margin-bottom:10px;
+    }
 
-.skill-box{
- 
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-}
+    .card p{
+      color:#94a3b8;
+      font-size:.95rem;
+      line-height:1.6;
+    }
 
-.skill-box h3{
-  color:#38bdf8;
-  margin-bottom:10px;
-}
+    .card a{
+      display:inline-block;
+      margin-top:15px;
+      color:#38bdf8;
+      font-weight:500;
+    }
+    .contact-form{
+      max-width:600px;
+      margin:auto;
+      background:#020617;
+      padding:40px;
+      border-radius:25px;
+      box-shadow:0 15px 40px rgba(0,0,0,.5);
+    }
 
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:14px;
+      margin-bottom:20px;
+      border:none;
+      outline:none;
+      border-radius:10px;
+      background:#0f172a;
+      color:white;
+    }
 
-.card{
-  background:#020617;
-  padding:25px;
-  border-radius:20px;
-  transition:.3s;
-}
+    .contact-form button{
+      width:100%;
+      padding:14px;
+      background:#38bdf8;
+      border:none;
+      border-radius:30px;
+      font-weight:600;
+      cursor:pointer;
+    }
 
-.card:hover{ transform:translateY(-8px); }
-
-.card h3{
-  color:#38bdf8;
-}
-
-.contact-form{
-  max-width:600px;
-  margin:auto;
-  background:#020617;
-  padding:40px;
-  border-radius:25px;
-}
-
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:18px;
-  background:#0b1220;
-  border:none;
-  border-radius:10px;
-  color:white;
-}
-
-.contact-form button{
-  width:100%;
-  padding:14px;
-  background:#38bdf8;
-  border:none;
-  border-radius:30px;
-  font-weight:600;
-}
-.projects {
-  padding: 80px 20px;
-  background: #0f172a;
-  color: #fff;
-  text-align: center;
-}
-
-.projects h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-}
-
-.projects-container {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.project-card {
-  width: 280px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  text-decoration: none;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-card:hover {
-  transform: translateY(-15px) rotateY(12deg) rotateX(8deg);
-  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg, #38bdf8, #6366f1, #f472b6);
-  animation: floatRotate 6s linear infinite;
-  opacity: 0.15;
-  z-index: 0;
-}
-
-.card-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.card-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.card-content p {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  margin-bottom: 15px;
-}
-
-.view-btn {
-  display: inline-block;
-  padding: 6px 12px;
-  border: 1px solid #38bdf8;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.view-btn:hover {
-  background: #38bdf8;
-  color: #0f172a;
-  cursor: pointer;
-}
-.services {
-            padding: 120px 0;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            transition:2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-card h3 {
-            color: var(--white);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #CBD5E1;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        .as4{
-          width: 200px;
-          height: 200px;
-          display: inline;
-         border-radius: 20px;
-        
-        }
-        .ad5{
-          width: 200px;
-        }.ad6{
-          width: 200px;
-          height: 400px;
-        }.dc8{
-          width: 200px;
-        }
-</style>
+  </style>
 </head>
 <body>
 
-<nav>
-  <h1>Saif.dev</h1>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#services">sevices</a></li>
   
-
-  </ul>
-</nav>
-
-<header>
-  <div class="hero">
-    <img src="okk.jpeg" alt="Profile">
-    <h1>Saif <span>Front-End Developer</span></h1>
-    <p>
-      I build modern, clean and responsive web interfaces with passion.
-    </p>
-  </div>
-</header>
-<section id="about">
-  <h2>About <span>Me</span></h2>
-  <div class="about">
-  
-    
-    <img  src="oii.jpeg" class="as4">
+  <header>
+    <div class="hero">
+      <img src="pic..jpeg" alt="Profile Photo">
+      <h1>Saif <span>Front-End Developer</span></h1>
       <p>
-      I'm a Front-End Developer focused on creating beautiful user interfaces
-      and clean web experiences and Iam a passionate Front-End Developer who enjoys building modern, responsive, and user-friendly websites. I focus on turning ideas and designs into interactive interfaces that provide a smooth and engaging user experience.
+        Passionate Front-End Developer specialized in building modern,
+        responsive and clean user interfaces using HTML, CSS & JavaScript.
+      </p>
+      <button onclick="document.getElementById('contact').scrollIntoView()">Contact Me</button>
+    </div>
+  </header>
 
-I work with HTML, CSS, and JavaScript, and I pay close attention to details such as clean code, performance, and cross-device compatibility. I am always eager to learn new technologies and continuously improve my skills in web development.
+ 
+  <section>
+    <h2>About <span>Me</span></h2>
+    <div class="about">
+      <p>
+        I’m a Front-End Developer focused on creating beautiful and performant
+        web interfaces. I enjoy turning complex problems into simple,
+        elegant designs.
+      </p>
+    </div>
 
-My goal is to create simple, efficient, and visually appealing digital solutions that deliver real value to users.
-    </p>
-  </div>
-</section>
-<section id="skills">
-  <h2>My <span>Skills</span></h2>
-  <div class="skills">
-    <div class="skill-box"><h3><img src="WhatsApp Image 2026-01-22 at 02.02.26.jpeg" class="ad5"></h3></div>
-    <div class="skill-box"><h3><img src="WhatsApp Image 2026-01-22 at 01.55.42.jpeg" class="ad5"></h3></div>
-    <div class="skill-box"><h3><img src="WhatsApp Image 2026-01-22 at 02.06.08.jpeg" class="ad5"></h3></div>
-    <div class="skill-box"><h3><img src="WhatsApp Image 2026-01-22 at 02.03.53.jpeg" class="ad6"></h3></div>
-  </div>
-</section>
-<section id="projects" class="projects">
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Mes <span class="highlight">Services</span></h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <i class="fa-solid fa-laptop-code"></i>
-                    <h3>Développement Full-Stack</h3>
-                    <p><img src="WhatsApp Image 2026-01-22 at 02.14.59.jpeg" class="dc8"></p>
-                </div>
-                <div class="service-card">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Développement Front-End</h3>
-                    <p><img src="WhatsApp Image 2026-01-22 at 02.16.34.jpeg" class="dc8"></p>
-                </div>
-                <div class="service-card">
-                    <i class="fa-solid fa-server"></i>
-                    <h3>Développement Back-End</h3>
-                    <p><img src="WhatsApp Image 2026-01-22 at 02.15.19.jpeg" class="dc8"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-  <h2>My Projects</h2>
-
-  <div class="projects-container">
-    
-    <a href="" target="_blank" class="project-card">
-      <div class="card-content">
-        <h3>Project One</h3>
-        <p><img src="WhatsApp Image 2026-01-22 at 02.25.58.jpeg" class="dc8"></p>
-        <span class="view-btn">View Project</span>
+    <h2 style="margin-top:80px;">My <span>Projects</span></h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>Modern personal portfolio built with HTML & CSS.</p>
+        <a href="#">View Project</a>
       </div>
-    </a>
 
-    <a href="" target="_blank" class="project-card">
-      <div class="card-content">
-        <h3>Project Two</h3>
-        <p><img src="WhatsApp Image 2026-01-22 at 02.26.12.jpeg" class="dc8"></p>
-        <span class="view-btn">View Project</span>
+      <div class="card">
+        <h3>Landing Page</h3>
+        <p>Responsive landing page with clean UI and animations.</p>
+        <a href="#">View Project</a>
       </div>
-    </a>
 
-    <a href="" target="_blank" class="project-card">
-      <div class="card-content">
-        <h3>Project Three</h3>
-        <p><img src="WhatsApp Image 2026-01-22 at 02.26.26.jpeg" class="dc8"></p>
-        <span class="view-btn">View Project</span>
+      <div class="card">
+        <h3>Form Design</h3>
+        <p>Professional contact form with modern UX.</p>
+        <a href="#">View Project</a>
       </div>
-    </a>
-     <a href="" target="_blank" class="project-card">
-      <div class="card-content">
-        <h3>Project Three</h3>
-        <p><img src="WhatsApp Image 2026-01-22 at 02.26.43.jpeg" class="dc8"></p>
-        <span class="view-btn">View Project</span>
-      </div>
-    </a>
-     <a href="" target="_blank" class="project-card">
-      <div class="card-content">
-        <h3>Project Three</h3>
-        <p><img src="WhatsApp Image 2026-01-22 at 02.25.40.jpeg" class="dc8"></p>
-        <span class="view-btn">View Project</span>
-      </div>
-    </a>
-     <a href="" target="_blank" class="project-card">
-      <div class="card-content">
-        <h3>Project Three</h3>
-        <p><img src="WhatsApp Image 2026-01-22 at 02.27.00.jpeg" class="dc8"></p>
-        <span class="view-btn">View Project</span>
-      </div>
-    </a>
+    </div>
+  </section>
 
-  </div>
-</section>
+  <section id="contact">
+    <h2>Contact <span>Me</span></h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-<section id="contact">
-<form class="contact-form"
-      action="https://formspree.io/f/mgoovlkl"
-      method="POST">
-
-  <input
-    type="text"
-    name="name"
-    placeholder="Your Name"
-    pattern="[A-Za-z\s]+"
-    required
-  >
-
-  <input
-    type="email"
-    name="email"
-    placeholder="example@email.com"
-    required
-  >
-
-  <textarea
-    name="message"
-    rows="5"
-    placeholder="Your Message"
-    required
-  ></textarea>
-
-  <button type="submit">Send Message</button>
-
-</form>
-</section>
-
-
+  
 </body>
 </html>
